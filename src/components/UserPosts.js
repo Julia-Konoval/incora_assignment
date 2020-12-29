@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import UserPost from "./UserPost";
-import "./UserPost.css";
-
+import "./UserPosts.css";
 
 const UserPosts = () => {
   let { user_id } = useParams();
@@ -24,27 +24,21 @@ const UserPosts = () => {
     fetchData();
   }, []);
 
-  function handleOnClick(e) {
-    axios
-      .post("https://jsonplaceholder.typicode.com/posts", { title: e.target.value})
-      .then((res) => console.log(res));
-  }
-
-
-// postContent(){
-// }
+  // postContent(){
+  // }
   return (
     <div className="user_posts_container">
       <h1 className="title">User's Posts</h1>
-      <h2>{user_id}</h2>
       <div className="wrap">
-      <button onClick={handleOnClick}>Add new</button>
+        <Link className="button" to="/newpost">
+          Add new
+        </Link>
       </div>
       <div className="posts_container">
         {posts.map((post) => (
           <UserPost post={post} />
         ))}
-      </div> 
+      </div>
     </div>
   );
 };

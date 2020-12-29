@@ -7,8 +7,8 @@ import "./Post.css";
 
 
 const Post = () => {
-  let [info, setInfo]= useState([]);
-  const { name, email, body } = info;
+  let [comments, setComments]= useState([]);
+  const { name, email, body } = comments;
   let { post_id } = useParams();
   useEffect(() => {
     async function fetchData() {
@@ -16,7 +16,7 @@ const Post = () => {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/comments?postId=${post_id}`
         );
-        setInfo(response.data);
+        setComments(response.data);
         console.log(response);
       } catch (error) {
         console.log(error);
@@ -24,13 +24,15 @@ const Post = () => {
     }
     fetchData();
   }, []);
-
+  function deleteComment(id) {
+    setComments(comments.filter((comment) => comment.id !== id));
+  }
   return (
     <div>
      <h2 className="title">Comments:</h2>
      <div className="comments">
-     {info.map((info) => (
-          <CommentInfo info={info} />
+     {comments.map((comment) => (
+          <CommentInfo comments={comment} deleteComment={deleteComment}/>
         ))}
      {/* <p >{name}</p>
      <p>{email}</p>
