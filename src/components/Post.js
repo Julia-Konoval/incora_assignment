@@ -32,9 +32,9 @@ const Post = () => {
      {info.map((info) => (
           <CommentInfo info={info} />
         ))}
-     <p >{name}</p>
+     {/* <p >{name}</p>
      <p>{email}</p>
-     <p>{body}</p>
+     <p>{body}</p> */}
     </div>
     </div>
   );
