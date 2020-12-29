@@ -13,7 +13,6 @@ const User = ({ user }) => {
       <p>{username}</p>
       <p>{email}</p>
       <p>Adress:{address.street}</p>
-
       <p>{phone}</p>
       <p>{website}</p>
       <p>{company.name}</p>

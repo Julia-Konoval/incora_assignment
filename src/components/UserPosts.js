@@ -4,6 +4,7 @@ import axios from "axios";
 import UserPost from "./UserPost";
 import "./UserPost.css";
 
+
 const UserPosts = () => {
   let { user_id } = useParams();
   const [posts, setPosts] = useState([]);
@@ -22,11 +23,16 @@ const UserPosts = () => {
     }
     fetchData();
   }, []);
-  function handleOnClick() {
+
+  function handleOnClick(e) {
     axios
-      .post("https://jsonplaceholder.typicode.com/posts", { title: "test" })
+      .post("https://jsonplaceholder.typicode.com/posts", { title: e.target.value})
       .then((res) => console.log(res));
   }
+
+
+// postContent(){
+// }
   return (
     <div className="user_posts_container">
       <h1 className="title">User's Posts</h1>
@@ -38,7 +44,7 @@ const UserPosts = () => {
         {posts.map((post) => (
           <UserPost post={post} />
         ))}
-      </div>
+      </div> 
     </div>
   );
 };
