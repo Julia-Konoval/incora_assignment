@@ -8,7 +8,8 @@ const User = ({ user }) => {
   const { id, name, username, email, address, phone, website, company } = user;
   return (
     <div className="user_details ">
-      <h2>{name}</h2>
+      <h2 className="user_name">{name}</h2>
+      <Link className="link" to={`/posts/${user.id}`}>Details</Link>
       <p>{username}</p>
       <p>{email}</p>
       <p>Adress:{address.street}</p>

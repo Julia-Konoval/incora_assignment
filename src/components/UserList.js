@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import User from "./User";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 //style
 import "./UserList.css";
 
@@ -28,7 +28,6 @@ const UserList = () => {
   return (
     <div>
       <h1 className="title">Current Users</h1>
-      <Link>Posts</Link>
       <div className="user_container">
         {users.map((user) => (
           <User user={user} />
