@@ -10,7 +10,7 @@ const UserList = () => {
 
   useEffect(() => {
     async function fetchData() {
-      let results = [];
+      
 
       try {
         const response = await axios.get(
@@ -26,7 +26,7 @@ const UserList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="user_list_container">
       <h1 className="title">Current Users</h1>
       <div className="user_container">
         {users.map((user, index) => (
